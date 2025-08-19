@@ -24,3 +24,37 @@ Space required: n(n+1)/2
 A symmetric matrix has the property that element at (i,j) is equal to element at (j,i).
 We store only the lower (or upper) triangular part, including the diagonal.
 Space required: n(n+1)/2  */
+#include<iostream>
+using namespace std;
+int main(){
+    int n ;
+    cout<<"Enter order of matrix";
+    cin>>n;
+    int arr[n][n];
+    for(int i =0;i<n;i++){
+        for(int j=0;j<n;j++){
+            cin>>arr[i][j];
+        }
+    }
+    int size=0;
+    for(int i=0;i<n;i++){
+        for(int j=0;j<n;j++){
+            if(arr[i][j]!=0){
+                size++;
+            }
+        }
+    }
+    int sparse[size][3];
+    int row=0;
+    for(int i=0;i<n;i++){
+        for(int j=0;j<n;j++){
+            if(arr[i][j]!=0){
+            sparse[row][0]=i;
+            sparse[row][1]=j;
+            sparse[row][2]=arr[i][j];
+            row++;
+        }
+        
+        }
+    }
+}
